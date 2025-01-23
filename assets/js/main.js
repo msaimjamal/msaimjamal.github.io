@@ -6,6 +6,34 @@
 
 (function($) {
 
+	const phrases = [
+		"Wuthering Heights",
+		"Jane Eyre",
+		"The Impossible State",
+		"Moby Dick",
+		"One Hundred Years of Solitude"
+	  ];
+	
+	  // Function to randomly pick a phrase
+	  function getRandomPhrase() {
+		const randomIndex = Math.floor(Math.random() * phrases.length);
+		return phrases[randomIndex];
+	  }
+	
+	  // Update the webpage with a random phrase
+	  function updatePhrase() {
+		const phraseElement = document.getElementById("rogue-ai-phrase");
+		if (phraseElement) {
+		  phraseElement.textContent = getRandomPhrase();
+		}
+	  }
+	
+	  // Run updatePhrase when the page loads and every 10 seconds
+	  document.addEventListener("DOMContentLoaded", () => {
+		updatePhrase(); // Display the first phrase immediately
+		setInterval(updatePhrase, 5000); // Update every 10 seconds (10000 ms)
+	  });
+
 	var $window = $(window),
 		$body = $('body'),
 		$header = $('#header'),
